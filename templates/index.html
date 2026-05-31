@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Phishing Email Detector</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+    
+
+<body>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-shield-halved"></i>
+            PhishGuard AI
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/analyze">Analyze</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-left">
+
+            <span class="badge">
+                AI Powered Security Platform
+            </span>
+
+            <h1>
+                Detect Phishing Emails
+                Before They Attack
+            </h1>
+
+            <p>
+                Advanced Machine Learning powered email security system
+                that identifies phishing attempts, suspicious URLs,
+                malicious attachments and social engineering attacks
+                in real time.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="/analyze" class="btn-primary">
+                    Analyze Email
+                </a>
+
+                <a href="/dashboard" class="btn-secondary">
+                    View Dashboard
+                </a>
+            </div>
+
+        </div>
+
+        <div class="hero-right">
+
+            <div class="security-card">
+
+                <div class="status-circle"></div>
+
+                <h3>Threat Detection Active</h3>
+
+                <p>
+                    Monitoring emails using AI and NLP models.
+                </p>
+
+                <div class="score">
+                    98.7%
+                </div>
+
+                <span>Detection Accuracy</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Features -->
+
+    <section class="features">
+
+        <h2>Key Features</h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <i class="fas fa-brain"></i>
+                <h3>AI Detection</h3>
+                <p>
+                    Machine learning algorithms classify phishing
+                    and legitimate emails with high accuracy.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-link"></i>
+                <h3>URL Analysis</h3>
+                <p>
+                    Detect malicious links, shortened URLs and
+                    suspicious domains instantly.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Real-Time Scan</h3>
+                <p>
+                    Analyze emails instantly and generate detailed
+                    threat reports.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Statistics -->
+
+    <section class="stats">
+
+        <div class="stat-card">
+            <h3>50K+</h3>
+            <p>Emails Analyzed</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>12K+</h3>
+            <p>Threats Detected</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>98.7%</h3>
+            <p>Accuracy</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>24/7</h3>
+            <p>Protection</p>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <h3>PhishGuard AI</h3>
+
+        <p>
+            AI-Powered Phishing Email Detection Platform
+        </p>
+
+        <p class="copyright">
+            © 2026 All Rights Reserved
+        </p>
+
+    </footer>
+
+</body>
+</html>
+

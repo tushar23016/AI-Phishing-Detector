@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | PhishGuard AI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <i class="fas fa-shield-halved"></i>
+            PhishGuard AI
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/analyze">Analyze</a></li>
+            <li><a href="/dashboard" class="active">Dashboard</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- Dashboard Header -->
+
+    <section class="dashboard-header">
+
+        <span class="badge">
+            Security Operations Dashboard
+        </span>
+
+        <h1>Threat Intelligence Overview</h1>
+
+        <p>
+            Real-time phishing detection statistics and
+            security analytics powered by Artificial Intelligence.
+        </p>
+
+    </section>
+
+    <!-- Statistics Cards -->
+
+    <section class="dashboard-stats">
+
+        <div class="dashboard-card">
+
+            <i class="fas fa-envelope-open-text"></i>
+
+            <h2>{{ total_emails }}</h2>
+
+            <p>Total Emails Analyzed</p>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <i class="fas fa-triangle-exclamation"></i>
+
+            <h2>{{ phishing_detected }}</h2>
+
+            <p>Phishing Emails</p>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <i class="fas fa-circle-check"></i>
+
+            <h2>{{ safe_emails }}</h2>
+
+            <p>Safe Emails</p>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <i class="fas fa-chart-line"></i>
+
+            <h2>{{ accuracy }}%</h2>
+
+            <p>Detection Accuracy</p>
+
+        </div>
+
+    </section>
+
+    <!-- Threat Overview -->
+
+    <section class="threat-overview">
+
+        <div class="overview-card">
+
+            <h2>
+                <i class="fas fa-shield-virus"></i>
+                Threat Summary
+            </h2>
+
+            <div class="summary-grid">
+
+                <div class="summary-item">
+                    <span>High Risk</span>
+                    <strong>{{ high_risk }}</strong>
+                </div>
+
+                <div class="summary-item">
+                    <span>Medium Risk</span>
+                    <strong>{{ medium_risk }}</strong>
+                </div>
+
+                <div class="summary-item">
+                    <span>Low Risk</span>
+                    <strong>{{ low_risk }}</strong>
+                </div>
+
+                <div class="summary-item">
+                    <span>Blocked</span>
+                    <strong>{{ blocked }}</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Recent Analysis Table -->
+
+    <section class="history-section">
+
+        <div class="history-card">
+
+            <h2>
+                <i class="fas fa-clock-rotate-left"></i>
+                Recent Analysis
+            </h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Prediction</th>
+                        <th>Risk</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for row in history %}
+
+                    <tr>
+
+                        <td>{{ row.id }}</td>
+
+                        <td>{{ row.date }}</td>
+
+                        <td>{{ row.prediction }}</td>
+
+                        <td>{{ row.risk }}</td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- Threat Categories -->
+
+    <section class="category-section">
+
+        <h2>Common Threat Indicators</h2>
+
+        <div class="category-grid">
+
+            <div class="category-card">
+                <i class="fas fa-link"></i>
+                <h3>Malicious URLs</h3>
+                <p>{{ malicious_urls }}</p>
+            </div>
+
+            <div class="category-card">
+                <i class="fas fa-user-secret"></i>
+                <h3>Fake Senders</h3>
+                <p>{{ fake_senders }}</p>
+            </div>
+
+            <div class="category-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Urgent Requests</h3>
+                <p>{{ urgent_requests }}</p>
+            </div>
+
+            <div class="category-card">
+                <i class="fas fa-file-shield"></i>
+                <h3>Malicious Attachments</h3>
+                <p>{{ malicious_attachments }}</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Quick Actions -->
+
+    <section class="quick-actions">
+
+        <h2>Quick Actions</h2>
+
+        <div class="action-grid">
+
+            <a href="/analyze" class="action-card">
+
+                <i class="fas fa-magnifying-glass"></i>
+
+                <h3>Analyze Email</h3>
+
+            </a>
+
+            <a href="/" class="action-card">
+
+                <i class="fas fa-house"></i>
+
+                <h3>Home</h3>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <h3>PhishGuard AI</h3>
+
+        <p>
+            Security Analytics & Phishing Detection Platform
+        </p>
+
+    </footer>
+
+</body>
+</html>
+

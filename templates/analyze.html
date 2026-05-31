@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyze Email | PhishGuard AI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <i class="fas fa-shield-halved"></i>
+            PhishGuard AI
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/analyze" class="active">Analyze</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- Analyze Section -->
+
+    <section class="analyze-section">
+
+        <div class="analyze-container">
+
+            <div class="analyze-header">
+
+                <span class="badge">
+                    AI Threat Analysis Engine
+                </span>
+
+                <h1>Analyze Suspicious Emails</h1>
+
+                <p>
+                    Paste email content or upload a text file.
+                    Our AI engine will evaluate phishing risk,
+                    suspicious URLs, and social engineering indicators.
+                </p>
+
+            </div>
+
+            <form action="/analyze" method="POST" enctype="multipart/form-data">
+
+                <!-- Email Text -->
+
+                <div class="input-card">
+
+                    <label>
+                        <i class="fas fa-envelope"></i>
+                        Paste Email Content
+                    </label>
+
+                    <textarea
+                        name="email_text"
+                        rows="12"
+                        placeholder="Paste the complete email content here..."
+                        required>
+                    </textarea>
+
+                </div>
+
+                <!-- File Upload -->
+
+                <div class="input-card">
+
+                    <label>
+                        <i class="fas fa-file-upload"></i>
+                        Upload Email File (.txt)
+                    </label>
+
+                    <input
+                        type="file"
+                        name="email_file"
+                        accept=".txt">
+
+                </div>
+
+                <!-- Submit -->
+
+                <div class="button-container">
+
+                    <button type="submit" class="analyze-btn">
+
+                        <i class="fas fa-magnifying-glass"></i>
+                        Analyze Email
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- Info Cards -->
+
+    <section class="analysis-info">
+
+        <div class="info-grid">
+
+            <div class="info-card">
+                <i class="fas fa-brain"></i>
+                <h3>AI Classification</h3>
+                <p>
+                    Machine learning model classifies
+                    phishing and legitimate emails.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <i class="fas fa-link"></i>
+                <h3>URL Inspection</h3>
+                <p>
+                    Detects suspicious domains,
+                    shortened links and malicious URLs.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <i class="fas fa-triangle-exclamation"></i>
+                <h3>Risk Assessment</h3>
+                <p>
+                    Generates a detailed risk score
+                    with threat indicators.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Sample Email -->
+
+    <section class="sample-section">
+
+        <div class="sample-card">
+
+            <h2>
+                Sample Email for Testing
+            </h2>
+
+            <div class="sample-content">
+
+                Dear Customer,
+
+                Your account has been suspended.
+                Verify your identity immediately by clicking:
+
+                http://secure-account-verification.xyz
+
+                Failure to verify within 24 hours will result
+                in permanent account closure.
+
+                Regards,
+                Security Team
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <h3>PhishGuard AI</h3>
+
+        <p>
+            Advanced AI-Powered Email Security Platform
+        </p>
+
+    </footer>
+
+</body>
+</html>
+

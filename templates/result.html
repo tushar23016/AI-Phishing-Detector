@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result | PhishGuard AI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <i class="fas fa-shield-halved"></i>
+            PhishGuard AI
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/analyze">Analyze</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- Result Section -->
+
+    <section class="result-section">
+
+        <div class="result-container">
+
+            <div class="result-header">
+
+                <span class="badge">
+                    AI Security Report
+                </span>
+
+                <h1>Email Analysis Result</h1>
+
+            </div>
+
+            <!-- Main Result Card -->
+
+            <div class="result-card">
+
+                {% if prediction == "Phishing" %}
+
+                    <div class="result-icon danger">
+                        <i class="fas fa-triangle-exclamation"></i>
+                    </div>
+
+                {% else %}
+
+                    <div class="result-icon safe">
+                        <i class="fas fa-circle-check"></i>
+                    </div>
+
+                {% endif %}
+
+                <h2>{{ prediction }}</h2>
+
+                <p class="result-description">
+                    AI engine has completed the security assessment.
+                </p>
+
+            </div>
+
+            <!-- Metrics -->
+
+            <div class="metrics-grid">
+
+                <div class="metric-card">
+                    <h3>Confidence</h3>
+                    <div class="metric-value">
+                        {{ confidence }}%
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Risk Level</h3>
+                    <div class="metric-value">
+                        {{ risk_level }}
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Status</h3>
+                    <div class="metric-value">
+                        {{ prediction }}
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Threat Indicators -->
+
+            <div class="reason-card">
+
+                <h2>
+                    <i class="fas fa-magnifying-glass"></i>
+                    Threat Indicators
+                </h2>
+
+                <ul class="reason-list">
+
+                    {% for reason in reasons %}
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        {{ reason }}
+                    </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+            <!-- Risk Meter -->
+
+            <div class="risk-card">
+
+                <h2>Risk Assessment</h2>
+
+                <div class="risk-bar">
+
+                    <div class="risk-fill"
+                         style="width: {{ confidence }}%;">
+                    </div>
+
+                </div>
+
+                <p>
+                    Higher confidence indicates a stronger prediction
+                    from the machine learning model.
+                </p>
+
+            </div>
+
+            <!-- Recommendations -->
+
+            <div class="recommendation-card">
+
+                <h2>
+                    <i class="fas fa-shield"></i>
+                    Security Recommendations
+                </h2>
+
+                {% if prediction == "Phishing" %}
+
+                <ul>
+                    <li>Do not click any links.</li>
+                    <li>Do not download attachments.</li>
+                    <li>Verify sender identity independently.</li>
+                    <li>Report the email to security staff.</li>
+                    <li>Delete the message if confirmed malicious.</li>
+                </ul>
+
+                {% else %}
+
+                <ul>
+                    <li>No phishing indicators detected.</li>
+                    <li>Exercise normal caution.</li>
+                    <li>Verify unexpected requests.</li>
+                    <li>Keep security software updated.</li>
+                </ul>
+
+                {% endif %}
+
+            </div>
+
+            <!-- Action Buttons -->
+
+            <div class="action-buttons">
+
+                <a href="/analyze" class="btn-primary">
+                    Analyze Another Email
+                </a>
+
+                <a href="/dashboard" class="btn-secondary">
+                    Open Dashboard
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <h3>PhishGuard AI</h3>
+
+        <p>
+            AI-Powered Email Threat Detection Platform
+        </p>
+
+    </footer>
+
+</body>
+</html>
+
